@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils";
 
 const Appearance = () => {
   const { theme, setTheme } = useTheme();
+
   return (
     <>
       <div className="flex gap-12">

@@ -4,6 +4,7 @@ import { CircleAlert, Loader2 } from "lucide-react";
 import React from "react";
 
 import ChannelHeader from "./_components/channel-header";
+import ChatInput from "./_components/chat-input";
 
 import { useGetChannel } from "@/apis/channels/use-get-channel";
 
@@ -40,8 +41,10 @@ const ChannelIdPage = () => {
   }
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full bg-white dark:bg-neutral-700">
       <ChannelHeader title={channel.name} />
+      <div className="flex-1" />
+      <ChatInput placeholder={`Message #${channel.name}`} />
     </div>
   );
 };
