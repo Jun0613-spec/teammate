@@ -15,7 +15,7 @@ import { useCreateChannelModal } from "@/stores/channels/use-create-channel-moda
 
 import { useWorkspaceId } from "@/hooks/workspaces/use-workspace-id";
 
-import { useCreateChannel } from "@/apis/channels/use-create-channel";
+import { useCreateChannel } from "@/hooks/chennels/use-create-channel";
 
 const CreateChannelModal = () => {
   const router = useRouter();

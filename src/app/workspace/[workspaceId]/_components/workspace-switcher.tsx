@@ -12,8 +12,8 @@ import { Button } from "@/components/ui/button";
 
 import { useWorkspaceId } from "@/hooks/workspaces/use-workspace-id";
 
-import { useGetWorkspace } from "@/apis/workspaces/use-get-workspace";
-import { useGetWorkspaces } from "@/apis/workspaces/use-get-workspaces";
+import { useGetWorkspace } from "@/hooks/workspaces/use-get-workspace";
+import { useGetWorkspaces } from "@/hooks/workspaces/use-get-workspaces";
 
 import { useCreateWorkspaceModal } from "@/stores/workspaces/use-create-workspace-modal";
 

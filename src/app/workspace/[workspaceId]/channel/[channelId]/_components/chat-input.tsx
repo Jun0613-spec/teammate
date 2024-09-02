@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import Quill from "quill";
 import toast from "react-hot-toast";
 
-import { useCreateMessage } from "@/apis/messages/use-create-message";
+import { useCreateMessage } from "@/hooks/messages/use-create-message";
 
 import { useChannelId } from "@/hooks/chennels/use-channel-id";
 import { useWorkspaceId } from "@/hooks/workspaces/use-workspace-id";

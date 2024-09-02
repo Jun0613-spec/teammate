@@ -20,8 +20,8 @@ import { Button } from "@/components/ui/button";
 import { useWorkspaceId } from "@/hooks/workspaces/use-workspace-id";
 import { useConfirm } from "@/hooks/use-confirm";
 
-import { useUpdateWorkspace } from "@/apis/workspaces/use-update-workspace";
-import { useRemoveWorkspace } from "@/apis/workspaces/use-remove-workspace";
+import { useUpdateWorkspace } from "@/hooks/workspaces/use-update-workspace";
+import { useRemoveWorkspace } from "@/hooks/workspaces/use-remove-workspace";
 
 interface PreferencesModalProps {
   open: boolean;

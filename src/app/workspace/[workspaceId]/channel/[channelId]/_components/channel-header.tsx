@@ -20,9 +20,9 @@ import { useConfirm } from "@/hooks/use-confirm";
 import { useChannelId } from "@/hooks/chennels/use-channel-id";
 import { useWorkspaceId } from "@/hooks/workspaces/use-workspace-id";
 
-import { useUpdateChannel } from "@/apis/channels/use-update-channel";
-import { useRemoveChannel } from "@/apis/channels/use-remove-channel";
-import { useCurrentMember } from "@/apis/members/use-current-member";
+import { useUpdateChannel } from "@/hooks/chennels/use-update-channel";
+import { useRemoveChannel } from "@/hooks/chennels/use-remove-channel";
+import { useCurrentMember } from "@/hooks/members/use-current-member";
 
 interface ChannelHeaderProps {
   title: string;

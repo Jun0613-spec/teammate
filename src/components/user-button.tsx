@@ -13,7 +13,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import { useCurrentUser } from "../apis/auth/use-current-user";
+import { useCurrentUser } from "../hooks/auth/use-current-user";
 import AppearanceModal from "./appearance-modal";
 
 const UserButton = () => {

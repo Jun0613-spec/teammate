@@ -12,10 +12,10 @@ import SidebarItem from "./sidebar-item";
 import WorkspaceSection from "./workspace-section";
 import UserItem from "./user-item";
 
-import { useCurrentMember } from "@/apis/members/use-current-member";
-import { useGetWorkspace } from "@/apis/workspaces/use-get-workspace";
-import { useGetMembers } from "@/apis/members/use-get-members";
-import { useGetChannels } from "@/apis/channels/use-get-channels";
+import { useCurrentMember } from "@/hooks/members/use-current-member";
+import { useGetWorkspace } from "@/hooks/workspaces/use-get-workspace";
+import { useGetMembers } from "@/hooks/members/use-get-members";
+import { useGetChannels } from "@/hooks/chennels/use-get-channels";
 
 import { useWorkspaceId } from "@/hooks/workspaces/use-workspace-id";
 import { useChannelId } from "@/hooks/chennels/use-channel-id";

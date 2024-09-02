@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button";
 
 import { useCreateWorkspaceModal } from "@/stores/workspaces/use-create-workspace-modal";
 
-import { useCreateWorkspace } from "@/apis/workspaces/use-create-workspace";
+import { useCreateWorkspace } from "@/hooks/workspaces/use-create-workspace";
 import { useRouter } from "next/navigation";
 
 const CreateWorkspaceModal = () => {

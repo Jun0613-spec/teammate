@@ -8,9 +8,9 @@ import { useWorkspaceId } from "@/hooks/workspaces/use-workspace-id";
 
 import { useCreateChannelModal } from "@/stores/channels/use-create-channel-modal";
 
-import { useGetWorkspace } from "@/apis/workspaces/use-get-workspace";
-import { useGetChannels } from "@/apis/channels/use-get-channels";
-import { useCurrentMember } from "@/apis/members/use-current-member";
+import { useGetWorkspace } from "@/hooks/workspaces/use-get-workspace";
+import { useGetChannels } from "@/hooks/chennels/use-get-channels";
+import { useCurrentMember } from "@/hooks/members/use-current-member";
 
 const WorkspaceIdPage = () => {
   const router = useRouter();

@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import UserButton from "@/components/user-button";
 import { ModeToggle } from "@/components/mode-toggel";
 
-import { useGetWorkspaces } from "@/apis/workspaces/use-get-workspaces";
+import { useGetWorkspaces } from "@/hooks/workspaces/use-get-workspaces";
 
 import { useCreateWorkspaceModal } from "@/stores/workspaces/use-create-workspace-modal";
 

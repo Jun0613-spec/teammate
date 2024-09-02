@@ -18,7 +18,7 @@ import { Button } from "@/components/ui/button";
 import { useConfirm } from "@/hooks/use-confirm";
 import { useWorkspaceId } from "@/hooks/workspaces/use-workspace-id";
 
-import { useNewJoinCode } from "@/apis/workspaces/use-new-join-code";
+import { useNewJoinCode } from "@/hooks/workspaces/use-new-join-code";
 
 interface InviteModalProps {
   open: boolean;
