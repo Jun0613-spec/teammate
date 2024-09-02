@@ -11,7 +11,6 @@ import toast from "react-hot-toast";
 import { Button } from "@/components/ui/button";
 
 import { useWorkspaceId } from "@/hooks/workspaces/use-workspace-id";
-
 import { useGetWorkspaceInfo } from "@/hooks/workspaces/use-get-workspace-info";
 import { useJoin } from "@/hooks/workspaces/use-join";
 

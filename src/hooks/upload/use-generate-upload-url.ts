@@ -3,6 +3,8 @@ import { useMutation } from "convex/react";
 
 import { api } from "../../../convex/_generated/api";
 
+type ResponseType = string | null;
+
 type Options = {
   onSuccess?: (data: any) => void;
   onError?: (error: Error) => void;
@@ -14,7 +16,7 @@ export const useGenerateUploadUrl = () => {
   const [status, setStatus] = useState<
     "success" | "error" | "settled" | "pending" | null
   >(null);
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<ResponseType>(null);
   const [error, setError] = useState<Error | null>(null);
 
   const isError = useMemo(() => status === "error", [status]);

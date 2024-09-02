@@ -2,7 +2,7 @@
 
 import { useAuthActions } from "@convex-dev/auth/react";
 import React, { useState } from "react";
-import { Loader, LogOut, Palette, Settings, SunMoon } from "lucide-react";
+import { Loader, LogOut, Palette } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -13,8 +13,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import { useCurrentUser } from "../hooks/auth/use-current-user";
 import AppearanceModal from "./appearance-modal";
+
+import { useCurrentUser } from "../hooks/auth/use-current-user";
 
 const UserButton = () => {
   const { signOut } = useAuthActions();

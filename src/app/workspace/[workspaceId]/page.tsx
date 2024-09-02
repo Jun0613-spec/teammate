@@ -4,10 +4,9 @@ import { useRouter } from "next/navigation";
 import React, { useMemo, useEffect } from "react";
 import { CircleAlert, Loader2 } from "lucide-react";
 
-import { useWorkspaceId } from "@/hooks/workspaces/use-workspace-id";
-
 import { useCreateChannelModal } from "@/stores/channels/use-create-channel-modal";
 
+import { useWorkspaceId } from "@/hooks/workspaces/use-workspace-id";
 import { useGetWorkspace } from "@/hooks/workspaces/use-get-workspace";
 import { useGetChannels } from "@/hooks/chennels/use-get-channels";
 import { useCurrentMember } from "@/hooks/members/use-current-member";

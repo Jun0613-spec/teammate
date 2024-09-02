@@ -10,14 +10,12 @@ import {
   DialogTitle,
   DialogHeader,
   DialogDescription,
-  DialogClose,
 } from "@/components/ui/dialog";
 
 import { Button } from "@/components/ui/button";
 
 import { useConfirm } from "@/hooks/use-confirm";
 import { useWorkspaceId } from "@/hooks/workspaces/use-workspace-id";
-
 import { useNewJoinCode } from "@/hooks/workspaces/use-new-join-code";
 
 interface InviteModalProps {

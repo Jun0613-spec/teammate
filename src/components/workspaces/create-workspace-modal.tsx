@@ -2,6 +2,7 @@
 
 import React, { FormEvent, useState } from "react";
 import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 import {
   Dialog,
@@ -15,7 +16,6 @@ import { Button } from "@/components/ui/button";
 import { useCreateWorkspaceModal } from "@/stores/workspaces/use-create-workspace-modal";
 
 import { useCreateWorkspace } from "@/hooks/workspaces/use-create-workspace";
-import { useRouter } from "next/navigation";
 
 const CreateWorkspaceModal = () => {
   const router = useRouter();
