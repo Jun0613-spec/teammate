@@ -37,9 +37,9 @@ const UserButton = () => {
       <AppearanceModal open={appearanceOpen} setOpen={setAppearanceOpen} />
       <DropdownMenu modal={false}>
         <DropdownMenuTrigger className="outline-none relative">
-          <Avatar className="size-10 hover:opacity-75 transition">
-            <AvatarImage alt="pic" src={image} />
-            <AvatarFallback className="bg-sky-600 dark:bg-sky-700 text-white">
+          <Avatar className="rounded-md size-10 hover:opacity-75 transition">
+            <AvatarImage alt="profile-pic" src={image} />
+            <AvatarFallback className="rounded-md bg-sky-600 dark:bg-sky-700 text-white">
               {avatarFallback}
             </AvatarFallback>
           </Avatar>

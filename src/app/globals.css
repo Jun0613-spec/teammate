@@ -74,6 +74,11 @@ body,
   }
 }
 
+.messages-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #dcdcdc #f8f8f8;
+}
+
 /* Light Theme Styles  */
 .ql-toolbar {
   border: none !important;
