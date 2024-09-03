@@ -8,14 +8,14 @@ import {
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
 
-import Toolbar from "./_components/toolbar";
+import WorkspaceToolbar from "./_components/workspace-toolbar";
 import Sidebar from "./_components/sidebar";
 import WorkspaceSidebar from "./_components/workspace-sidebar";
 
 const WorkspaceIdLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <main className="h-full">
-      <Toolbar />
+      <WorkspaceToolbar />
       <div className="flex h-[calc(100vh-40px)]">
         <Sidebar />
         <ResizablePanelGroup

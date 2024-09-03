@@ -39,6 +39,7 @@ export default function RootLayout({
                   position="bottom-right"
                   gutter={8}
                   toastOptions={{
+                    className: "text-sm",
                     duration: 2000,
                   }}
                 />

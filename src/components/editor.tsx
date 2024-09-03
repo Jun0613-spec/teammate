@@ -8,7 +8,7 @@ import React, {
 import Quill, { type QuillOptions } from "quill";
 import { PiTextAa } from "react-icons/pi";
 import { BsSend, BsFillSendFill } from "react-icons/bs";
-import { ImageIcon, SmilePlusIcon, XIcon } from "lucide-react";
+import { ImageIcon, SmileIcon, XIcon } from "lucide-react";
 import Image from "next/image";
 
 import "quill/dist/quill.snow.css";
@@ -206,7 +206,7 @@ const Editor = ({
           </Hint>
           <EmojiPopover onEmojiSelect={onEmojiSelect} hint="Emoji">
             <Button disabled={disabled} size="iconSm" variant="transparent2">
-              <SmilePlusIcon className="size-4 hover:text-[#6264A7]" />
+              <SmileIcon className="size-4 hover:text-[#6264A7]" />
             </Button>
           </EmojiPopover>
           {variant === "create" && (

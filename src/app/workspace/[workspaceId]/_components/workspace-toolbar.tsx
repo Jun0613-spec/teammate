@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { useWorkspaceId } from "@/hooks/workspaces/use-workspace-id";
 import { useGetWorkspace } from "@/hooks/workspaces/use-get-workspace";
 
-const Toolbar = () => {
+const WorkspaceToolbar = () => {
   const workspaceId = useWorkspaceId();
   const { data } = useGetWorkspace({ id: workspaceId });
 
@@ -32,4 +32,4 @@ const Toolbar = () => {
   );
 };
 
-export default Toolbar;
+export default WorkspaceToolbar;

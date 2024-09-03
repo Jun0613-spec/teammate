@@ -4,6 +4,7 @@ import { differenceInMinutes, format, isToday, isYesterday } from "date-fns";
 import { Id } from "../../convex/_generated/dataModel";
 
 import Message from "./message";
+import ChannelHero from "./channel-hero";
 
 import { GetMessagesReturnType } from "@/hooks/messages/use-get-messages";
 import { useWorkspaceId } from "@/hooks/workspaces/use-workspace-id";
@@ -87,16 +88,16 @@ const MessageList = ({
                 memberId={message.memberId}
                 authorImage={message.user.image}
                 authorName={message.user.name}
-                isAuthor={false}
+                isAuthor={message.memberId === currentMember?._id}
                 reactions={message.reactions}
                 body={message.body}
                 image={message.image}
                 updatedAt={message.updatedAt}
                 createdAt={message._creationTime}
-                isEditing={false}
-                setEditingId={() => {}}
+                isEditing={editingId === message._id}
+                setEditingId={setEditingId}
                 isCompact={isCompact}
-                hideThreadButton={false}
+                hideThreadButton={variant === "thread"}
                 threadCount={message.threadCount}
                 threadImage={message.threadImage}
                 threadTimestamp={message.threadTimestamp}
@@ -105,6 +106,9 @@ const MessageList = ({
           })}
         </div>
       ))}
+      {variant === "channel" && channelName && channelCreationTime && (
+        <ChannelHero name={channelName} creationTime={channelCreationTime} />
+      )}
     </div>
   );
 };
