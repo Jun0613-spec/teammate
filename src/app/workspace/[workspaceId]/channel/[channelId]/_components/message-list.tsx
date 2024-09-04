@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { differenceInMinutes, format, isToday, isYesterday } from "date-fns";
+import { Loader2 } from "lucide-react";
 
 import { Id } from "../../../../../../../convex/_generated/dataModel";
 
@@ -106,6 +107,31 @@ const MessageList = ({
           })}
         </div>
       ))}
+      <div
+        className="h-1"
+        ref={(element) => {
+          if (element) {
+            const observer = new IntersectionObserver(
+              ([entry]) => {
+                if (entry.isIntersecting && canLoadMore) {
+                  loadMore();
+                }
+              },
+              { threshold: 1.0 }
+            );
+            observer.observe(element);
+            return () => observer.disconnect();
+          }
+        }}
+      />
+      {isLoadingMore && (
+        <div className="text-center my-2 relative">
+          <hr className="absolute top-1/2 left-0 right-0 border-t border-neutral-300" />
+          <span className="relative inline-block bg-white px-4 py-1 rounded-full text-xs border-neutral-300 border shadow-sm">
+            <Loader2 className="animate-spin size-4" />
+          </span>
+        </div>
+      )}
       {variant === "channel" && channelName && channelCreationTime && (
         <ChannelHero name={channelName} creationTime={channelCreationTime} />
       )}

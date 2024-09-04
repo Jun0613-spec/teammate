@@ -187,7 +187,7 @@ const Message = ({
                 <Renderer value={body} />
                 <Thumbnail url={image} />
                 {updatedAt ? (
-                  <span className="text-cs text-muted-foreground">
+                  <span className="flex text-xs text-muted-foreground">
                     (edited)
                   </span>
                 ) : null}
