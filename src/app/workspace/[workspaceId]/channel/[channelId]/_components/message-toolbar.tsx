@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  MessageSquareIcon,
+  MessageSquareTextIcon,
   PencilIcon,
   SmileIcon,
   Trash2Icon,
@@ -49,7 +49,7 @@ const MessageToolbar = ({
               disabled={isPending}
               size={"iconSm"}
             >
-              <MessageSquareIcon className="size-4" />
+              <MessageSquareTextIcon className="size-4" />
             </Button>
           </Hint>
         )}
