@@ -6,11 +6,10 @@ import React from "react";
 import ChannelHeader from "./_components/channel-header";
 import ChatInput from "./_components/chat-input";
 
-import MessageList from "@/app/workspace/[workspaceId]/channel/[channelId]/_components/message-list";
-
 import { useGetChannel } from "@/hooks/chennels/use-get-channel";
 import { useChannelId } from "@/hooks/chennels/use-channel-id";
 import { useGetMessages } from "@/hooks/messages/use-get-messages";
+import MessageList from "@/components/message-list";
 
 const ChannelIdPage = () => {
   const channelId = useChannelId();
@@ -54,6 +53,7 @@ const ChannelIdPage = () => {
         loadMore={loadMore}
         isLoadingMore={status === "LoadingMore"}
         canLoadMore={status === "CanLoadMore"}
+        variant="channel"
       />
 
       <ChatInput placeholder={`Message #${channel.name}`} />

@@ -4,7 +4,6 @@ import Quill from "quill";
 import toast from "react-hot-toast";
 
 import { useCreateMessage } from "@/hooks/messages/use-create-message";
-import { useChannelId } from "@/hooks/chennels/use-channel-id";
 import { useWorkspaceId } from "@/hooks/workspaces/use-workspace-id";
 import { useGenerateUploadUrl } from "@/hooks/upload/use-generate-upload-url";
 
@@ -14,22 +13,22 @@ const Editor = dynamic(() => import("@/components/editor"), { ssr: false });
 
 interface ChatInputProps {
   placeholder: string;
+  conversationId: Id<"conversations">;
 }
 
 type CreateMessageValues = {
-  channelId: Id<"channels">;
+  conversationId: Id<"conversations">;
   workspaceId: Id<"workspaces">;
   body: string;
   image?: Id<"_storage"> | undefined;
 };
 
-const ChatInput = ({ placeholder }: ChatInputProps) => {
+const ChatInput = ({ placeholder, conversationId }: ChatInputProps) => {
   const [editorKey, setEditorKey] = useState<number>(0);
   const [isPending, setIsPending] = useState<boolean>(false);
 
   const editorRef = useRef<Quill | null>(null);
 
-  const channelId = useChannelId();
   const workspaceId = useWorkspaceId();
 
   const { mutate: createMessage } = useCreateMessage();
@@ -47,7 +46,7 @@ const ChatInput = ({ placeholder }: ChatInputProps) => {
       editorRef?.current?.enable(false);
 
       const values: CreateMessageValues = {
-        channelId,
+        conversationId,
         workspaceId,
         body,
         image: undefined,

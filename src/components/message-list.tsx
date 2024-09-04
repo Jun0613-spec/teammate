@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { differenceInMinutes, format, isToday, isYesterday } from "date-fns";
 import { Loader2 } from "lucide-react";
 
-import { Id } from "../../../../../../../convex/_generated/dataModel";
-
-import Message from "../../../../../../components/message";
+import { Id } from "../../convex/_generated/dataModel";
 
 import ChannelHero from "./channel-hero";
+import Message from "./message";
+import ConversationHero from "./conversation-hero";
 
 import { GetMessagesReturnType } from "@/hooks/messages/use-get-messages";
 import { useWorkspaceId } from "@/hooks/workspaces/use-workspace-id";
@@ -39,7 +39,7 @@ const MessageList = ({
   memberImage,
   channelName,
   channelCreationTime,
-  variant = "channel",
+  variant,
   data,
   loadMore,
   isLoadingMore,
@@ -108,6 +108,7 @@ const MessageList = ({
           })}
         </div>
       ))}
+
       <div
         className="h-1"
         ref={(element) => {
@@ -125,6 +126,7 @@ const MessageList = ({
           }
         }}
       />
+
       {isLoadingMore && (
         <div className="text-center my-2 relative">
           <hr className="absolute top-1/2 left-0 right-0 border-t border-neutral-300" />
@@ -133,8 +135,12 @@ const MessageList = ({
           </span>
         </div>
       )}
+
       {variant === "channel" && channelName && channelCreationTime && (
         <ChannelHero name={channelName} creationTime={channelCreationTime} />
+      )}
+      {variant === "conversation" && (
+        <ConversationHero name={memberName} image={memberImage} />
       )}
     </div>
   );

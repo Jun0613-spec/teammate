@@ -8,9 +8,9 @@ import { Doc, Id } from "../../convex/_generated/dataModel";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 import Hint from "./hint";
-import Thumbnail from "../app/workspace/[workspaceId]/channel/[channelId]/_components/thumbnail";
-import MessageToolbar from "../app/workspace/[workspaceId]/channel/[channelId]/_components/message-toolbar";
-import Reactions from "../app/workspace/[workspaceId]/channel/[channelId]/_components/reactions";
+import Thumbnail from "./thumbnail";
+import MessageToolbar from "./message-toolbar";
+import Reactions from "./reactions";
 
 import { useConfirm } from "@/hooks/use-confirm";
 import { useUpdateMessage } from "@/hooks/messages/use-update-message";
@@ -20,20 +20,8 @@ import { usePanel } from "@/hooks/use-panel";
 
 import { cn } from "@/lib/utils";
 
-const Renderer = dynamic(
-  () =>
-    import(
-      "@/app/workspace/[workspaceId]/channel/[channelId]/_components/renderer"
-    ),
-  { ssr: false }
-);
-const Editor = dynamic(
-  () =>
-    import(
-      "@/app/workspace/[workspaceId]/channel/[channelId]/_components/editor"
-    ),
-  { ssr: false }
-);
+const Renderer = dynamic(() => import("@/components/renderer"), { ssr: false });
+const Editor = dynamic(() => import("@/components/editor"), { ssr: false });
 
 interface MessageProps {
   id: Id<"messages">;
@@ -167,12 +155,15 @@ const Message = ({
               "bg-rose-500/50 transform  transition-all scale-y-0 origin-bottom duration-200"
           )}
         >
-          <div className="flex items-start gap-3">
-            <Hint label={formatFullTime(new Date(createdAt))}>
-              <button className="text-xs text-muted-foreground opacity-0 group-hover:opacity-100 w-[40px] leading-[22px] text-center hover:underline">
-                {format(new Date(createdAt), "hh:mm")}
-              </button>
-            </Hint>
+          <div className="flex items-start gap-2">
+            <div>
+              <Hint label={formatFullTime(new Date(createdAt))}>
+                <button className="text-xs text-muted-foreground opacity-0 group-hover:opacity-100 w-[40px] leading-[20px] text-center hover:underline">
+                  {format(new Date(createdAt), "hh:mm")}
+                </button>
+              </Hint>
+            </div>
+
             {isEditing ? (
               <div className="h-full w-full">
                 <Editor
@@ -235,7 +226,7 @@ const Message = ({
               />
               <AvatarFallback className="rounded-md bg-sky-600 dark:bg-sky-700 text-white">
                 {avatarFallback}
-              </AvatarFallback>{" "}
+              </AvatarFallback>
             </Avatar>
           </button>
           {isEditing ? (

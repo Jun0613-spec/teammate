@@ -1,7 +1,7 @@
 import React from "react";
 import { MdOutlineAddReaction } from "react-icons/md";
 
-import { Doc, Id } from "../../../../../../../convex/_generated/dataModel";
+import { Doc, Id } from "../../convex/_generated/dataModel";
 
 import EmojiPopover from "@/components/emoji-popover";
 import Hint from "@/components/hint";
