@@ -3,23 +3,20 @@ import dynamic from "next/dynamic";
 import { format, isToday, isYesterday } from "date-fns";
 import toast from "react-hot-toast";
 
-import { Doc, Id } from "../../../../../../../convex/_generated/dataModel";
+import { Doc, Id } from "../../convex/_generated/dataModel";
 
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "../../../../../../components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
-import Hint from "../../../../../../components/hint";
-import Thumbnail from "./thumbnail";
-import MessageToolbar from "./message-toolbar";
-import Reactions from "./reactions";
+import Hint from "./hint";
+import Thumbnail from "../app/workspace/[workspaceId]/channel/[channelId]/_components/thumbnail";
+import MessageToolbar from "../app/workspace/[workspaceId]/channel/[channelId]/_components/message-toolbar";
+import Reactions from "../app/workspace/[workspaceId]/channel/[channelId]/_components/reactions";
 
 import { useConfirm } from "@/hooks/use-confirm";
 import { useUpdateMessage } from "@/hooks/messages/use-update-message";
 import { useRemoveMessage } from "@/hooks/messages/use-remove-message";
 import { useToggleReaction } from "@/hooks/reactions/use-toggle-reaction";
+import { usePanel } from "@/hooks/use-panel";
 
 import { cn } from "@/lib/utils";
 
@@ -91,12 +88,14 @@ const Message = ({
   const { mutate: toggleReaction, isPending: isTogglingReaction } =
     useToggleReaction();
 
-  const isPending = isUpdatingMessage;
+  const isPending = isUpdatingMessage || isTogglingReaction;
 
   const [ConfirmDialog, confirm] = useConfirm(
     "Delete message",
     "This will permanently delete the message. Do you wish to continue?"
   );
+
+  const { parentMessageId, onOpenMessage, onClose } = usePanel();
 
   const handleUpdate = ({ body }: { body: string }) => {
     updateMessage(
@@ -123,7 +122,9 @@ const Message = ({
         onSuccess: () => {
           toast.success("Message had been deleted");
 
-          //TODO: close thred if opened
+          if (parentMessageId === id) {
+            onClose();
+          }
         },
         onError: () => {
           toast.error("Failed to delete message");
@@ -198,9 +199,9 @@ const Message = ({
           {!isEditing && (
             <MessageToolbar
               isAuthor={isAuthor}
-              isPending={false}
+              isPending={isPending}
               handleEdit={() => setEditingId(id)}
-              handleThread={() => {}}
+              handleThread={() => onOpenMessage(id)}
               handleDelete={handelRemove}
               handleReaction={handleReaction}
               hideThreadButton={hideThreadButton}
@@ -276,9 +277,9 @@ const Message = ({
         {!isEditing && (
           <MessageToolbar
             isAuthor={isAuthor}
-            isPending={false}
+            isPending={isPending}
             handleEdit={() => setEditingId(id)}
-            handleThread={() => {}}
+            handleThread={() => onOpenMessage(id)}
             handleDelete={handelRemove}
             handleReaction={handleReaction}
             hideThreadButton={hideThreadButton}

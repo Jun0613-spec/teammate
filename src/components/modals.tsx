@@ -2,8 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 
-import CreateChannelModal from "./channels/create-channel-modal";
-import CreateWorkspaceModal from "./workspaces/create-workspace-modal";
+import CreateChannelModal from "./modals/create-channel-modal";
+import CreateWorkspaceModal from "./modals/create-workspace-modal";
 
 const Modals = () => {
   const [mounted, setMounted] = useState<boolean>(false);

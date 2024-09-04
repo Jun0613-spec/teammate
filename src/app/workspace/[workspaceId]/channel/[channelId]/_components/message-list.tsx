@@ -4,7 +4,8 @@ import { Loader2 } from "lucide-react";
 
 import { Id } from "../../../../../../../convex/_generated/dataModel";
 
-import Message from "./message";
+import Message from "../../../../../../components/message";
+
 import ChannelHero from "./channel-hero";
 
 import { GetMessagesReturnType } from "@/hooks/messages/use-get-messages";
