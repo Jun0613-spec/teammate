@@ -3,7 +3,6 @@ import { query } from "./_generated/server";
 import { mutation } from "./_generated/server";
 
 import { auth } from "./auth";
-import { todo } from "node:test";
 
 export const get = query({
   args: {
@@ -142,8 +141,6 @@ export const remove = mutation({
       .unique();
 
     if (!member || member.role !== "admin") throw new Error("Unauthorized");
-
-    //TODO: Delete associated messages when i delete the channel
 
     await ctx.db.delete(args.id);
     return args.id;

@@ -6,12 +6,13 @@ import { Id } from "../../../convex/_generated/dataModel";
 
 type RequestType = {
   body: string;
-  image?: Id<"_storage">;
   workspaceId: Id<"workspaces">;
+  image?: Id<"_storage">;
   channelId?: Id<"channels">;
-  parentMessageId?: Id<"messages">;
   conversationId?: Id<"conversations">;
+  parentMessageId?: Id<"messages">;
 };
+
 type ResponseType = Id<"messages"> | null;
 
 type Options = {

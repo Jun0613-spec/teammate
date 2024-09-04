@@ -44,6 +44,11 @@ const formatDateLabel = (dateStr: string) => {
   return format(date, "EEEE, MMMM d");
 };
 
+interface Message {
+  body: string;
+  image: File | null;
+}
+
 const Thread = ({ messageId, onClose }: ThreadProps) => {
   const channelId = useChannelId();
   const workspaceId = useWorkspaceId();
@@ -201,6 +206,7 @@ const Thread = ({ messageId, onClose }: ThreadProps) => {
                   body={message.body}
                   image={message.image}
                   updatedAt={message.updatedAt}
+                  threadName={message.threadName}
                   createdAt={message._creationTime}
                   threadCount={message.threadCount}
                   threadImage={message.threadImage}
@@ -208,7 +214,7 @@ const Thread = ({ messageId, onClose }: ThreadProps) => {
                   isEditing={editingId === message._id}
                   setEditingId={setEditingId}
                   isCompact={isCompact}
-                  hideThreadButton
+                  hideThreadButton={true}
                 />
               );
             })}

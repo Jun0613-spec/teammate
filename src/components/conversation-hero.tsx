@@ -13,7 +13,10 @@ const ConversationHero = ({
 
   return (
     <div className="mt-[88px] mx-5 mb-4">
-      <div className="flex items-center gap-x-1 mb-2 text-2xl font-semibold">
+      <div
+        className="flex items-center gap-x-1 mb-2 text-2xl font-semibold
+      "
+      >
         <Avatar className="size-12 mr-2">
           <AvatarImage src={image} className="rounded-md" />
           <AvatarFallback className="rounded-md bg-sky-600 dark:bg-sky-700 text-white">

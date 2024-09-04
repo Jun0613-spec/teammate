@@ -19,6 +19,7 @@ import { useToggleReaction } from "@/hooks/reactions/use-toggle-reaction";
 import { usePanel } from "@/hooks/use-panel";
 
 import { cn } from "@/lib/utils";
+import ThreadBar from "./thread-bar";
 
 const Renderer = dynamic(() => import("@/components/renderer"), { ssr: false });
 const Editor = dynamic(() => import("@/components/editor"), { ssr: false });
@@ -100,7 +101,7 @@ const Message = ({
     );
   };
 
-  const handelRemove = async () => {
+  const handleRemove = async () => {
     const ok = await confirm();
     if (!ok) return;
 
@@ -184,6 +185,13 @@ const Message = ({
                   </span>
                 ) : null}
                 <Reactions data={reactions} onChange={handleReaction} />
+                <ThreadBar
+                  count={threadCount}
+                  image={threadImage}
+                  name={threadName}
+                  timestamp={threadTimestamp}
+                  onClick={() => onOpenMessage(id)}
+                />
               </div>
             )}
           </div>
@@ -193,7 +201,7 @@ const Message = ({
               isPending={isPending}
               handleEdit={() => setEditingId(id)}
               handleThread={() => onOpenMessage(id)}
-              handleDelete={handelRemove}
+              handleDelete={handleRemove}
               handleReaction={handleReaction}
               hideThreadButton={hideThreadButton}
             />
@@ -261,6 +269,13 @@ const Message = ({
                 <span className="text-xs text-muted-foreground">(edited)</span>
               ) : null}
               <Reactions data={reactions} onChange={handleReaction} />
+              <ThreadBar
+                count={threadCount}
+                image={threadImage}
+                name={threadName}
+                timestamp={threadTimestamp}
+                onClick={() => onOpenMessage(id)}
+              />
             </div>
           )}
         </div>
@@ -271,7 +286,7 @@ const Message = ({
             isPending={isPending}
             handleEdit={() => setEditingId(id)}
             handleThread={() => onOpenMessage(id)}
-            handleDelete={handelRemove}
+            handleDelete={handleRemove}
             handleReaction={handleReaction}
             hideThreadButton={hideThreadButton}
           />
