@@ -14,8 +14,8 @@ import Image from "next/image";
 import "quill/dist/quill.snow.css";
 import { Delta, Op } from "quill/core";
 
-import Hint from "./hint";
-import EmojiPopover from "./emoji-popover";
+import Hint from "../../../../../../components/hint";
+import EmojiPopover from "../../../../../../components/emoji-popover";
 
 import { Button } from "@/components/ui/button";
 

@@ -1,14 +1,14 @@
-import { useMutation } from "convex/react";
 import { useCallback, useMemo, useState } from "react";
+import { useMutation } from "convex/react";
 
 import { api } from "../../../convex/_generated/api";
 import { Id } from "../../../convex/_generated/dataModel";
 
 type RequestType = {
-  id: Id<"messages">;
+  value: string;
+  messageId: Id<"messages">;
 };
-
-type ResponseType = Id<"messages"> | null;
+type ResponseType = Id<"reactions"> | null;
 
 type Options = {
   onSuccess?: (data: ResponseType) => void;
@@ -17,11 +17,10 @@ type Options = {
   throwError?: boolean;
 };
 
-export const useRemoveMessage = () => {
+export const useToggleReaction = () => {
   const [status, setStatus] = useState<
     "success" | "error" | "settled" | "pending" | null
   >(null);
-
   const [data, setData] = useState<ResponseType>(null);
   const [error, setError] = useState<Error | null>(null);
 
@@ -30,7 +29,8 @@ export const useRemoveMessage = () => {
   const isSettled = useMemo(() => status === "settled", [status]);
   const isPending = useMemo(() => status === "pending", [status]);
 
-  const mutation = useMutation(api.messages.remove);
+  const mutation = useMutation(api.reactions.toggle);
+
   const mutate = useCallback(
     async (values: RequestType, options?: Options) => {
       try {
@@ -41,13 +41,13 @@ export const useRemoveMessage = () => {
         const response = await mutation(values);
         setStatus("success");
         options?.onSuccess?.(response);
+
         return response;
       } catch (error) {
         setStatus("error");
         options?.onError?.(error as Error);
-        if (options?.throwError) {
-          throw error;
-        }
+
+        if (options?.throwError) throw error;
       } finally {
         setStatus("settled");
         options?.onSettled?.();

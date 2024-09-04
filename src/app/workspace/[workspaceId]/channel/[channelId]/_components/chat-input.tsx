@@ -9,7 +9,13 @@ import { useWorkspaceId } from "@/hooks/workspaces/use-workspace-id";
 import { useGenerateUploadUrl } from "@/hooks/upload/use-generate-upload-url";
 import { Id } from "../../../../../../../convex/_generated/dataModel";
 
-const Editor = dynamic(() => import("@/components/editor"), { ssr: false });
+const Editor = dynamic(
+  () =>
+    import(
+      "@/app/workspace/[workspaceId]/channel/[channelId]/_components/editor"
+    ),
+  { ssr: false }
+);
 
 interface ChatInputProps {
   placeholder: string;

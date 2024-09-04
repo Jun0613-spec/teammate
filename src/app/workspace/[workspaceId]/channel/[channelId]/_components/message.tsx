@@ -3,22 +3,40 @@ import dynamic from "next/dynamic";
 import { format, isToday, isYesterday } from "date-fns";
 import toast from "react-hot-toast";
 
-import { Doc, Id } from "../../convex/_generated/dataModel";
+import { Doc, Id } from "../../../../../../../convex/_generated/dataModel";
 
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "../../../../../../components/ui/avatar";
 
-import Hint from "./hint";
+import Hint from "../../../../../../components/hint";
 import Thumbnail from "./thumbnail";
 import MessageToolbar from "./message-toolbar";
+import Reactions from "./reactions";
 
 import { useConfirm } from "@/hooks/use-confirm";
 import { useUpdateMessage } from "@/hooks/messages/use-update-message";
 import { useRemoveMessage } from "@/hooks/messages/use-remove-message";
+import { useToggleReaction } from "@/hooks/reactions/use-toggle-reaction";
 
 import { cn } from "@/lib/utils";
 
-const Renderer = dynamic(() => import("@/components/renderer"), { ssr: false });
-const Editor = dynamic(() => import("@/components/editor"), { ssr: false });
+const Renderer = dynamic(
+  () =>
+    import(
+      "@/app/workspace/[workspaceId]/channel/[channelId]/_components/renderer"
+    ),
+  { ssr: false }
+);
+const Editor = dynamic(
+  () =>
+    import(
+      "@/app/workspace/[workspaceId]/channel/[channelId]/_components/editor"
+    ),
+  { ssr: false }
+);
 
 interface MessageProps {
   id: Id<"messages">;
@@ -70,6 +88,8 @@ const Message = ({
     useUpdateMessage();
   const { mutate: removeMessage, isPending: isRemovingMessage } =
     useRemoveMessage();
+  const { mutate: toggleReaction, isPending: isTogglingReaction } =
+    useToggleReaction();
 
   const isPending = isUpdatingMessage;
 
@@ -107,6 +127,17 @@ const Message = ({
         },
         onError: () => {
           toast.error("Failed to delete message");
+        },
+      }
+    );
+  };
+
+  const handleReaction = (value: string) => {
+    toggleReaction(
+      { messageId: id, value },
+      {
+        onError: () => {
+          toast.error("Failed to toggle reaction");
         },
       }
     );
@@ -160,6 +191,7 @@ const Message = ({
                     (edited)
                   </span>
                 ) : null}
+                <Reactions data={reactions} onChange={handleReaction} />
               </div>
             )}
           </div>
@@ -170,7 +202,7 @@ const Message = ({
               handleEdit={() => setEditingId(id)}
               handleThread={() => {}}
               handleDelete={handelRemove}
-              handleReaction={() => {}}
+              handleReaction={handleReaction}
               hideThreadButton={hideThreadButton}
             />
           )}
@@ -236,6 +268,7 @@ const Message = ({
               {updatedAt ? (
                 <span className="text-xs text-muted-foreground">(edited)</span>
               ) : null}
+              <Reactions data={reactions} onChange={handleReaction} />
             </div>
           )}
         </div>
@@ -247,7 +280,7 @@ const Message = ({
             handleEdit={() => setEditingId(id)}
             handleThread={() => {}}
             handleDelete={handelRemove}
-            handleReaction={() => {}}
+            handleReaction={handleReaction}
             hideThreadButton={hideThreadButton}
           />
         )}

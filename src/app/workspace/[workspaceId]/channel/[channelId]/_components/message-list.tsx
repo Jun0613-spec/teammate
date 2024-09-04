@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { differenceInMinutes, format, isToday, isYesterday } from "date-fns";
 
-import { Id } from "../../convex/_generated/dataModel";
+import { Id } from "../../../../../../../convex/_generated/dataModel";
 
 import Message from "./message";
 import ChannelHero from "./channel-hero";

@@ -6,7 +6,7 @@ import React from "react";
 import ChannelHeader from "./_components/channel-header";
 import ChatInput from "./_components/chat-input";
 
-import MessageList from "@/components/message-list";
+import MessageList from "@/app/workspace/[workspaceId]/channel/[channelId]/_components/message-list";
 
 import { useGetChannel } from "@/hooks/chennels/use-get-channel";
 import { useChannelId } from "@/hooks/chennels/use-channel-id";

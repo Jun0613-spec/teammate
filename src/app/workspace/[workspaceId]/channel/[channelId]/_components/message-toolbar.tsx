@@ -6,10 +6,10 @@ import {
   Trash2Icon,
 } from "lucide-react";
 
-import EmojiPopover from "./emoji-popover";
-import Hint from "./hint";
+import EmojiPopover from "../../../../../../components/emoji-popover";
+import Hint from "../../../../../../components/hint";
 
-import { Button } from "./ui/button";
+import { Button } from "../../../../../../components/ui/button";
 
 interface MessageToolbarProps {
   isAuthor: boolean;
