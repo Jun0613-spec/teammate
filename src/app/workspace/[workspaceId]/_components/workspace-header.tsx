@@ -87,19 +87,6 @@ const WorkspaceHeader = ({ workspace, isAdmin }: WorkspaceHeaderProps) => {
               </>
             )}
           </DropdownMenuContent>
-
-          <div className="flex items-center gap-0.5">
-            <Hint label="New message" side="bottom">
-              <Button size="iconSm" variant="transparent">
-                <SquarePen className="size-4 text-white" />
-              </Button>
-            </Hint>
-            <Hint label="Filter conversations" side="bottom">
-              <Button size="iconSm" variant="transparent">
-                <ListFilter className="size-4 text-white" />
-              </Button>
-            </Hint>
-          </div>
         </DropdownMenu>
       </div>
     </>

@@ -1,5 +1,5 @@
 import React from "react";
-import { FaChevronDown } from "react-icons/fa6";
+import { FaChevronRight } from "react-icons/fa6";
 
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -28,7 +28,7 @@ const Header = ({ memberName, memberImage, onClick }: HeaderProps) => {
           </AvatarFallback>
         </Avatar>
         <span className="truncate">{memberName}</span>
-        <FaChevronDown className="size-2.5 ml-2" />
+        <FaChevronRight className="size-2.5 ml-2" />
       </Button>
     </div>
   );

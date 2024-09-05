@@ -9,6 +9,7 @@ import { ModeToggle } from "@/components/mode-toggel";
 import { useGetWorkspaces } from "@/hooks/workspaces/use-get-workspaces";
 
 import { useCreateWorkspaceModal } from "@/stores/workspaces/use-create-workspace-modal";
+import { Loader2 } from "lucide-react";
 
 export default function Home() {
   const router = useRouter();
@@ -30,9 +31,8 @@ export default function Home() {
   }, [isLoading, workspaceId, open, setOpen, router]);
 
   return (
-    <div>
-      <UserButton />
-      <ModeToggle />
+    <div className="flex h-full items-center justify-center">
+      <Loader2 className="size-6 animate-spin text-muted-foreground" />
     </div>
   );
 }

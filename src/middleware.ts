@@ -16,7 +16,7 @@ export default convexAuthNextjsMiddleware((request): any => {
     return nextjsMiddlewareRedirect(request, "/");
   }
 
-  // TODO: Redirect user away from auth page if they are already authenticated
+  return null;
 });
 
 export const config = {

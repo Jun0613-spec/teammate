@@ -35,7 +35,7 @@ const MessageToolbar = ({
       <div className="group-hover:opacity-100 opacity-0 transition-opacity border bg-white shadow-sm rounded-md">
         <EmojiPopover
           hint="Add reaction"
-          onEmojiSelect={(emoji) => handleReaction(emoji.native)}
+          onEmojiSelect={(emoji) => handleReaction(emoji)}
         >
           <Button variant={"ghost"} disabled={isPending} size={"iconSm"}>
             <SmileIcon className="size-4" />

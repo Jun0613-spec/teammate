@@ -6,6 +6,7 @@ import { Id } from "../../../../../../../convex/_generated/dataModel";
 import { useMemberId } from "@/hooks/members/use-member-id";
 import { useGetMessages } from "@/hooks/messages/use-get-messages";
 import { useGetMember } from "@/hooks/members/use-get-member";
+import { usePanel } from "@/hooks/use-panel";
 
 import MessageList from "@/components/message-list";
 
@@ -18,6 +19,8 @@ interface ConversationProps {
 
 const Conversation = ({ id }: ConversationProps) => {
   const memberId = useMemberId();
+
+  const { onOpenProfile } = usePanel();
 
   const { data: member, isLoading: isMemberLoading } = useGetMember({
     id: memberId,
@@ -37,7 +40,7 @@ const Conversation = ({ id }: ConversationProps) => {
       <Header
         memberName={member?.user.name}
         memberImage={member?.user.image}
-        onClick={() => {}}
+        onClick={() => onOpenProfile(memberId)}
       />
       <MessageList
         data={results}

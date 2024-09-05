@@ -4,12 +4,10 @@ import {
   Dialog,
   DialogContent,
   DialogTitle,
-  DialogTrigger,
   DialogHeader,
-  DialogClose,
-  DialogFooter,
 } from "@/components/ui/dialog";
-import Appearance from "./appearance";
+
+import Appearance from "../appearance";
 
 interface AppearanceModalProps {
   open: boolean;

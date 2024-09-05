@@ -15,13 +15,14 @@ import WorkspaceToolbar from "./_components/workspace-toolbar";
 import Sidebar from "./_components/sidebar";
 import WorkspaceSidebar from "./_components/workspace-sidebar";
 import Thread from "./_components/thread";
+import Profile from "./_components/profile";
 
 import { usePanel } from "@/hooks/use-panel";
 
 const WorkspaceIdLayout = ({ children }: { children: React.ReactNode }) => {
-  const { parentMessageId, onClose } = usePanel();
+  const { parentMessageId, profileMemberId, onClose } = usePanel();
 
-  const showPanel = !!parentMessageId;
+  const showPanel = !!parentMessageId || !!profileMemberId;
 
   return (
     <main className="h-full">
@@ -42,7 +43,9 @@ const WorkspaceIdLayout = ({ children }: { children: React.ReactNode }) => {
 
           <ResizableHandle withHandle />
 
-          <ResizablePanel minSize={20}>{children}</ResizablePanel>
+          <ResizablePanel defaultSize={80} minSize={20}>
+            {children}
+          </ResizablePanel>
           {showPanel && (
             <>
               <ResizableHandle withHandle />
@@ -50,6 +53,11 @@ const WorkspaceIdLayout = ({ children }: { children: React.ReactNode }) => {
                 {parentMessageId ? (
                   <Thread
                     messageId={parentMessageId as Id<"messages">}
+                    onClose={onClose}
+                  />
+                ) : profileMemberId ? (
+                  <Profile
+                    memberId={profileMemberId as Id<"members">}
                     onClose={onClose}
                   />
                 ) : (

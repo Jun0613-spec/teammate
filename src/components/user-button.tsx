@@ -1,8 +1,9 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useAuthActions } from "@convex-dev/auth/react";
 import React, { useState } from "react";
-import { Loader, LogOut, Palette } from "lucide-react";
+import { Loader2, LogOut, Palette, Settings } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -13,18 +14,27 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import AppearanceModal from "./appearance-modal";
+import AppearanceModal from "./modals/appearance-modal";
+import EditProfileModal from "./modals/edit-pofile-modal";
 
 import { useCurrentUser } from "../hooks/auth/use-current-user";
 
 const UserButton = () => {
+  const router = useRouter();
+
   const { signOut } = useAuthActions();
   const { data, isLoading } = useCurrentUser();
 
   const [appearanceOpen, setAppearanceOpen] = useState<boolean>(false);
+  const [editProfileOpen, setEditProfileOpen] = useState<boolean>(false);
+
+  const onhandleSingout = () => {
+    signOut();
+    router.replace("/auth");
+  };
 
   if (isLoading) {
-    <Loader className="size-4 animate-spin text-muted-foreground" />;
+    <Loader2 className="size-4 animate-spin text-muted-foreground" />;
   }
 
   if (!data) return null;
@@ -35,6 +45,7 @@ const UserButton = () => {
   return (
     <>
       <AppearanceModal open={appearanceOpen} setOpen={setAppearanceOpen} />
+      <EditProfileModal open={editProfileOpen} setOpen={setEditProfileOpen} />
       <DropdownMenu modal={false}>
         <DropdownMenuTrigger className="outline-none relative">
           <Avatar className="rounded-md size-10 hover:opacity-75 transition">
@@ -58,7 +69,17 @@ const UserButton = () => {
 
           <DropdownMenuItem
             className="cursor-pointer"
-            onClick={() => signOut()}
+            onClick={() => setEditProfileOpen(true)}
+          >
+            <Settings className="size-4 mr-2" />
+            Edit profile
+          </DropdownMenuItem>
+
+          <DropdownMenuSeparator />
+
+          <DropdownMenuItem
+            className="cursor-pointer"
+            onClick={onhandleSingout}
           >
             <LogOut className="size-4 mr-2" />
             Sign out

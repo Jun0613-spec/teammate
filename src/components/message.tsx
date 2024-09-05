@@ -84,7 +84,7 @@ const Message = ({
     "This will permanently delete the message. Do you wish to continue?"
   );
 
-  const { parentMessageId, onOpenMessage, onClose } = usePanel();
+  const { parentMessageId, onOpenProfile, onOpenMessage, onClose } = usePanel();
 
   const handleUpdate = ({ body }: { body: string }) => {
     updateMessage(
@@ -225,7 +225,7 @@ const Message = ({
         )}
       >
         <div className="flex items-start gap-2">
-          <button onClick={() => {}}>
+          <button onClick={() => onOpenProfile(memberId)}>
             <Avatar className="rounded-md">
               <AvatarImage
                 className="rounded-md"
@@ -251,7 +251,7 @@ const Message = ({
             <div className="flex flex-col w-full overflow-hidden">
               <div className="text-sm">
                 <button
-                  onClick={() => {}}
+                  onClick={() => onOpenProfile(memberId)}
                   className="font-bold text-primary hover:underline"
                 >
                   {authorName}

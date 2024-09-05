@@ -58,7 +58,7 @@ const Reactions = ({ data, onChange }: ReactionsProps) => {
         </Hint>
       ))}
       <EmojiPopover
-        onEmojiSelect={(emoji) => onChange(emoji.native)}
+        onEmojiSelect={(emoji) => onChange(emoji)}
         hint="Add reaction"
       >
         <button className="h-7 px-3 rounded-full bg-neutral-200/70 border border-transparent hover:border-neutral-500 text-neutral-800 flex items-center gap-x-1">

@@ -21,6 +21,7 @@ import { useChannelId } from "@/hooks/chennels/use-channel-id";
 import { useMemberId } from "@/hooks/members/use-member-id";
 
 import { useCreateChannelModal } from "@/stores/channels/use-create-channel-modal";
+import { useGetMessages } from "@/hooks/messages/use-get-messages";
 
 const WorkspaceSidebar = () => {
   const workspaceId = useWorkspaceId();
@@ -42,7 +43,7 @@ const WorkspaceSidebar = () => {
     workspaceId,
   });
 
-  if (workspaceLoading || memberLoading) {
+  if (workspaceLoading || memberLoading || membersLoading || channelsLoading) {
     return (
       <div className="flex flex-col bg-[#8283bd] h-full items-center justify-center">
         <Loader2 className="size-5 text-white animate-spin" />
@@ -64,10 +65,6 @@ const WorkspaceSidebar = () => {
         isAdmin={member.role === "admin"}
         workspace={workspace}
       />
-      <div className="flex flex-col px-2 mt-3">
-        <SidebarItem label="Threads" icon={MessageSquareText} id="threads" />
-        <SidebarItem label="Drafts & Sent" icon={SendHorizonal} id="drafts" />
-      </div>
       <WorkspaceSection
         label="Channels"
         hint="New channel"
@@ -83,11 +80,7 @@ const WorkspaceSidebar = () => {
           />
         ))}
       </WorkspaceSection>
-      <WorkspaceSection
-        label="Direct Messages"
-        hint="New direct message"
-        onNew={() => {}}
-      >
+      <WorkspaceSection label="Direct Messages" hint="New direct message">
         {members?.map((item) => (
           <UserItem
             key={item._id}
