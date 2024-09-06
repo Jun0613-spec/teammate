@@ -12,8 +12,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import Hint from "@/components/hint";
-
 import PreferencesModal from "./preferences-modal";
 import InviteModal from "./invite-modal";
 
@@ -24,7 +22,7 @@ interface WorkspaceHeaderProps {
 
 const WorkspaceHeader = ({ workspace, isAdmin }: WorkspaceHeaderProps) => {
   const [preferencesOpen, setPreferencesOpen] = useState<boolean>(false);
-  const [InviteOpen, setInviteOpen] = useState<boolean>(false);
+  const [inviteOpen, setInviteOpen] = useState<boolean>(false);
 
   return (
     <>
@@ -35,7 +33,7 @@ const WorkspaceHeader = ({ workspace, isAdmin }: WorkspaceHeaderProps) => {
       />
 
       <InviteModal
-        open={InviteOpen}
+        open={inviteOpen}
         setOpen={setInviteOpen}
         name={workspace.name}
         joinCode={workspace.joinCode}
@@ -46,40 +44,47 @@ const WorkspaceHeader = ({ workspace, isAdmin }: WorkspaceHeaderProps) => {
           <DropdownMenuTrigger asChild>
             <Button
               variant="transparent"
-              className="font-semibold text-lg w-auto p-1.5 overflow-hidden"
+              className="font-semibold text-lg w-auto p-1.5 overflow-hidden text-white dark:text-neutral-200"
               size="sm"
+              aria-expanded="false"
+              aria-label={`Workspace ${workspace?.name}`}
             >
-              <span className="truncate text-white">{workspace?.name}</span>
-              <ChevronDown className="size-4 ml-1 shrink-0 text-white" />
+              <span className="truncate">{workspace?.name}</span>
+              <ChevronDown className="size-4 ml-1 shrink-0 text-white dark:text-neutral-200" />
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent side="bottom" align="start" className="w-64">
-            <DropdownMenuItem className="cursor-pointer capitalize">
-              <div className="size-9 relative overflow-hidden bg-neutral-500 font-semibold text-white text-xl rounded-md flex items-center justify-center mr-2">
+          <DropdownMenuContent
+            side="bottom"
+            align="start"
+            className="w-64 dark:bg-neutral-800"
+          >
+            <DropdownMenuItem className="cursor-pointer capitalize dark:bg-neutral-700">
+              <div className="size-9 relative overflow-hidden bg-neutral-500 dark:bg-neutral-600 font-semibold text-white dark:text-neutral-200 text-xl rounded-md flex items-center justify-center mr-2">
                 {workspace.name.charAt(0).toUpperCase()}
               </div>
               <div className="flex flex-col items-start">
-                <p className="font-bold">{workspace.name}</p>
-                <p className="text-xs text-muted-foreground">
+                <p className="font-bold text-white dark:text-neutral-200">
+                  {workspace.name}
+                </p>
+                <p className="text-xs text-muted-foreground dark:text-neutral-400">
                   Active workspace
                 </p>
               </div>
             </DropdownMenuItem>
             {isAdmin && (
               <>
-                <DropdownMenuSeparator />
-
+                <DropdownMenuSeparator className="dark:border-neutral-700" />
                 <DropdownMenuItem
-                  className="cursor-pointer py-2"
+                  className="cursor-pointer py-2 dark:hover:bg-neutral-600"
                   onClick={() => setInviteOpen(true)}
                 >
-                  <p className="truncate">Invite people to {workspace.name}</p>
+                  <p className="truncate text-white dark:text-neutral-200">
+                    Invite people to {workspace.name}
+                  </p>
                 </DropdownMenuItem>
-
-                <DropdownMenuSeparator />
-
+                <DropdownMenuSeparator className="dark:border-neutral-700" />
                 <DropdownMenuItem
-                  className="cursor-pointer py-2"
+                  className="cursor-pointer py-2 dark:hover:bg-neutral-600"
                   onClick={() => setPreferencesOpen(true)}
                 >
                   Preferences

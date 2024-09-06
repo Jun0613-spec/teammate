@@ -7,7 +7,6 @@ import { Id } from "../../../convex/_generated/dataModel";
 type RequestType = {
   id: Id<"users">;
   name: string;
-  image?: Id<"_storage">;
 };
 
 type ResponseType = Id<"users"> | null;

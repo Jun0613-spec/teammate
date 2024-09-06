@@ -54,11 +54,13 @@ const JoinPage = () => {
   }
 
   return (
-    <div className="h-full flex flex-col gap-y-8 items-center justify-center bg-white p-8 rounded-lg shadow-md">
+    <div className="h-full flex flex-col gap-y-8 items-center justify-center dark:bg-neutral-800 p-8 rounded-lg shadow-md">
       <Image src="/logo.svg" alt="logo" width={80} height={80} />
       <div className="flex flex-col gap-y-4 items-center justify-center max-w-md">
         <div className="flex flex-col gap-y-4 items-center justify-center">
-          <h1 className="text-wxl font-bold">Join {data?.name}</h1>
+          <h1 className="text-wxl font-bold dark:text-neutral-200">
+            Join {data?.name}
+          </h1>
           <p className="text-md text-muted-foreground">
             Enter the workspace code to join
           </p>

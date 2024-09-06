@@ -68,8 +68,8 @@ const MessageList = ({
       {Object.entries(groupedMessages || {}).map(([dateKey, messages]) => (
         <div key={dateKey}>
           <div className="text-center my-2 relative">
-            <hr className="absolute top-1/2 left-0 right-0 border-t border-neutral-300" />
-            <span className="relative inline-block bg-white px-4 py-1 rounded-full text-xs border-neutral-300 border shadow-sm">
+            <hr className="absolute top-1/2 left-0 right-0 border-t dark:border-neutral-600 border-neutral-300" />
+            <span className="relative inline-block bg-white dark:bg-neutral-900 px-4 py-1 rounded-full text-xs border border-neutral-300 dark:border-neutral-600 shadow-sm">
               {formatDateLabel(dateKey)}
             </span>
           </div>
@@ -129,8 +129,8 @@ const MessageList = ({
 
       {isLoadingMore && (
         <div className="text-center my-2 relative">
-          <hr className="absolute top-1/2 left-0 right-0 border-t border-neutral-300" />
-          <span className="relative inline-block bg-white px-4 py-1 rounded-full text-xs border-neutral-300 border shadow-sm">
+          <hr className="absolute top-1/2 left-0 right-0 border-t dark:border-neutral-600 border-neutral-300" />
+          <span className="relative inline-block bg-white dark:bg-neutral-900 px-4 py-1 rounded-full text-xs border border-neutral-300 dark:border-neutral-600 shadow-sm">
             <Loader2 className="animate-spin size-4" />
           </span>
         </div>

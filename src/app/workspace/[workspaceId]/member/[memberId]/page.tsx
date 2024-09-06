@@ -37,17 +37,17 @@ const MemberIdPage = () => {
 
   if (isPending) {
     return (
-      <div className="flex h-full items-center justify-center">
-        <Loader2 className="size-6 animate-spin text-muted-foreground" />
+      <div className="flex h-full items-center justify-center dark:bg-gray-900">
+        <Loader2 className="size-6 animate-spin text-muted-foreground dark:text-gray-400" />
       </div>
     );
   }
 
   if (!conversationId) {
     return (
-      <div className="flex h-full flex-col gap-y-2 items-center justify-center">
-        <CircleAlert className="size-6 text-muted-foreground" />
-        <span className="text-sm text-muted-foreground ">
+      <div className="flex h-full flex-col gap-y-2 items-center justify-center dark:bg-gray-900">
+        <CircleAlert className="size-6 text-muted-foreground dark:text-gray-400" />
+        <span className="text-sm text-muted-foreground dark:text-gray-400">
           Conversation not found
         </span>
       </div>

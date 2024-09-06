@@ -36,7 +36,7 @@ const Conversation = ({ id }: ConversationProps) => {
   }
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full dark:bg-gray-900 dark:text-white">
       <Header
         memberName={member?.user.name}
         memberImage={member?.user.image}

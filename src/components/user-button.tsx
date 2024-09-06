@@ -39,7 +39,7 @@ const UserButton = () => {
 
   if (!data) return null;
 
-  const { name, image } = data;
+  const { image, name } = data;
   const avatarFallback = name!.charAt(0).toUpperCase();
 
   return (

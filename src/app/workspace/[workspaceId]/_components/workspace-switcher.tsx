@@ -34,10 +34,7 @@ const WorkspaceSwitcher = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button
-          className="size-9 relative overflow-hidden 
-        bg-neutral-200 hover:bg-neutral-200/80 text-neutral-800 font-semibold text-xl"
-        >
+        <Button className="size-9 relative overflow-hidden bg-neutral-200 dark:bg-neutral-800 hover:bg-neutral-200/80 dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-200 font-semibold text-xl">
           {workspaceLoading ? (
             <Loader2 className="size-5 animate-spin shrink-0" />
           ) : (
@@ -45,13 +42,17 @@ const WorkspaceSwitcher = () => {
           )}
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent side="bottom" align="start" className="w-64">
+      <DropdownMenuContent
+        side="bottom"
+        align="start"
+        className="w-64 dark:bg-neutral-800 dark:text-neutral-200"
+      >
         <DropdownMenuItem
           onClick={() => router.push(`/workspace/${workspaceId}`)}
           className="cursor-pointer flex-col justify-start items-start capitalize"
         >
           {workspace?.name}
-          <span className="text-xs text-muted-foreground">
+          <span className="text-xs text-muted-foreground dark:text-muted-foreground">
             Active workspace
           </span>
         </DropdownMenuItem>
@@ -59,9 +60,9 @@ const WorkspaceSwitcher = () => {
           <DropdownMenuItem
             key={workspace._id}
             onClick={() => router.push(`/workspace/${workspace._id}`)}
-            className="cursor-pointer capitalize overflow-hidden "
+            className="cursor-pointer capitalize overflow-hidden"
           >
-            <div className="shrink-0 size-9 relative overflow-hidden bg-neutral-500 text-white font-semibold text-xl rounded-md flex items-center justify-center mr-2">
+            <div className="shrink-0 size-9 relative overflow-hidden bg-neutral-500 dark:bg-neutral-600 text-white dark:text-gray-200 font-semibold text-xl rounded-md flex items-center justify-center mr-2">
               {workspace.name.charAt(0).toUpperCase()}
             </div>
             <p className="truncate">{workspace.name}</p>
@@ -71,7 +72,7 @@ const WorkspaceSwitcher = () => {
           className="cursor-pointer"
           onClick={() => setOpen(true)}
         >
-          <div className="size-9 relative overflow-hidden bg-neutral-200 text-neutral-800 font-semibold text-xl rounded-md flex items-center justify-center mr-2">
+          <div className="size-9 relative overflow-hidden bg-neutral-200 dark:bg-neutral-700 text-neutral-800 dark:text-neutral-200 font-semibold text-xl rounded-md flex items-center justify-center mr-2">
             <Plus />
           </div>
           Create Workspace

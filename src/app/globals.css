@@ -144,6 +144,10 @@ body,
   color: #f0f0f0 !important;
 }
 
+.dark .ql-editor {
+  color: #e0e0e0 !important; /* Adjusted text color for better visibility */
+}
+
 .dark .ql-editor a {
   color: #9bc1f5 !important;
 }

@@ -36,7 +36,7 @@ const WorkspaceIdLayout = ({ children }: { children: React.ReactNode }) => {
           <ResizablePanel
             defaultSize={20}
             minSize={11}
-            className="bg-[#8283bd] "
+            className="bg-[#8283bd] dark:bg-[#5b5b9d] "
           >
             <WorkspaceSidebar />
           </ResizablePanel>

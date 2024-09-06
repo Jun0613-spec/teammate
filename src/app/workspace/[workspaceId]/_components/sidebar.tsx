@@ -11,13 +11,15 @@ const Sidebar = () => {
   const pathname = usePathname();
 
   return (
-    <aside className="w-[70px] h-full bg-[#6264A7] flex flex-col items-center gap-y-4 pt-2 pb-4">
+    <aside className="w-[70px] h-full bg-[#6264A7] dark:bg-[#3f3f6d] flex flex-col items-center gap-y-4 pt-2 pb-4">
       <WorkspaceSwitcher />
 
       <SidebarButton
         icon={Home}
         label="Home"
-        isActive={pathname.includes("/workspace")}
+        isActive={
+          pathname === "/workspace" || pathname.startsWith("/workspace/")
+        }
       />
 
       <div className="flex flex-col items-center justify-center gap-y-1 mt-auto">

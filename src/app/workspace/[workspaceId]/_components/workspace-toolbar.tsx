@@ -45,13 +45,13 @@ const WorkspaceToolbar = () => {
   };
 
   return (
-    <nav className="bg-[#6264A7] flex items-center justify-between h-10 p-1.5">
+    <nav className="bg-[#6264A7] dark:bg-[#3f3f6d] flex items-center justify-between h-10 p-1.5">
       <div className="flex-1" />
-      <div className="min-w-[280px] max-[642px] grow-[2] shrink ">
+      <div className="min-w-[280px] max-[642px] grow-[2] shrink">
         <Button
           onClick={() => setOpen(true)}
           size="sm"
-          className="bg-accent/25 hover:bg-accent-25 w-full justify-start h-7 px2"
+          className="bg-accent/25 hover:bg-accent/30 dark:bg-accent/25 dark:hover:bg-accent/30 w-full justify-start h-7 px-2"
         >
           <Search className="size-4 text-white mr-2" />
           <span className="text-white text-xs">Search {data?.name}</span>
@@ -63,7 +63,7 @@ const WorkspaceToolbar = () => {
             <CommandGroup heading="Channels">
               {channels?.map((channel) => (
                 <CommandItem
-                  className="cursor-pointer"
+                  className="cursor-pointer dark:text-gray-200"
                   key={channel._id}
                   onSelect={() => onChannelClick(channel._id)}
                 >
@@ -75,7 +75,7 @@ const WorkspaceToolbar = () => {
             <CommandGroup heading="Members">
               {members?.map((member) => (
                 <CommandItem
-                  className="cursor-pointer"
+                  className="cursor-pointer dark:text-gray-200"
                   key={member._id}
                   onSelect={() => onMemberClick(member._id)}
                 >

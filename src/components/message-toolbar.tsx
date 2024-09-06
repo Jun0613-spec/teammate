@@ -31,8 +31,8 @@ const MessageToolbar = ({
   hideThreadButton,
 }: MessageToolbarProps) => {
   return (
-    <div className="absolute top-0 right-5">
-      <div className="group-hover:opacity-100 opacity-0 transition-opacity border bg-white shadow-sm rounded-md">
+    <div className="absolute top-0 right-5 group">
+      <div className="group-hover:opacity-100 opacity-0 transition-opacity border dark:bg-neutral-900 dark:border-neutral-700 bg-white shadow-sm rounded-md">
         <EmojiPopover
           hint="Add reaction"
           onEmojiSelect={(emoji) => handleReaction(emoji)}

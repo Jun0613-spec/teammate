@@ -40,16 +40,18 @@ const Reactions = ({ data, onChange }: ReactionsProps) => {
           <button
             onClick={() => onChange(reaction.value)}
             className={cn(
-              "h-6 px-2 rounded-full bg-neutral-200/70 border border-transparent text-neutral-800 flex items-center gap-x-1",
+              "h-6 px-2 rounded-full border border-transparent flex items-center gap-x-1",
+              "bg-neutral-200/70 text-neutral-800 dark:bg-neutral-700/70 dark:text-neutral-200",
               reaction.memberIds.includes(currentMemberId) &&
-                "bg-blue-100/70 border-blue-500 text-white"
+                "bg-blue-100/70 border-blue-500 text-white dark:bg-blue-500/70 dark:border-blue-600"
             )}
           >
             {reaction.value}
             <span
               className={cn(
-                "text-xs font-semibold text-muted-foreground",
-                reaction.memberIds.includes(currentMemberId) && "text-blue-500"
+                "text-xs font-semibold",
+                reaction.memberIds.includes(currentMemberId) &&
+                  "text-blue-500 dark:text-blue-300"
               )}
             >
               {reaction.count}
@@ -61,7 +63,7 @@ const Reactions = ({ data, onChange }: ReactionsProps) => {
         onEmojiSelect={(emoji) => onChange(emoji)}
         hint="Add reaction"
       >
-        <button className="h-7 px-3 rounded-full bg-neutral-200/70 border border-transparent hover:border-neutral-500 text-neutral-800 flex items-center gap-x-1">
+        <button className="h-7 px-3 rounded-full border border-transparent hover:border-neutral-500 flex items-center gap-x-1 bg-neutral-200/70 text-neutral-800 dark:bg-neutral-700/70 dark:text-neutral-200">
           <MdOutlineAddReaction className="size-4" />
         </button>
       </EmojiPopover>

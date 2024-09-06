@@ -134,17 +134,49 @@ const Profile = ({ memberId, onClose }: ProfileProps) => {
     );
   }
 
-  if (!member) {
+  if (isLoadingMember) {
     return (
-      <div className="h-full flex flex-col ">
+      <div className="h-full flex flex-col">
         <div className="flex justify-between items-center h-[49px] px-4 border-b">
           <p className="text-lg font-bold">Profile</p>
-          <Button onClick={onClose} size="iconSm" variant="ghost">
+          <Button
+            onClick={onClose}
+            size="iconSm"
+            variant="ghost"
+            aria-label="Close profile"
+          >
             <XIcon className="size-5 stroke-[1.5]" />
           </Button>
         </div>
         <div className="flex flex-col gap-y-2 h-full items-center justify-center">
-          <CircleAlert className="size-5 text-muted-foreground " />
+          <Loader2
+            className="size-5 animate-spin text-muted-foreground"
+            aria-label="Loading profile"
+          />
+        </div>
+      </div>
+    );
+  }
+
+  if (!member) {
+    return (
+      <div className="h-full flex flex-col">
+        <div className="flex justify-between items-center h-[49px] px-4 border-b">
+          <p className="text-lg font-bold">Profile</p>
+          <Button
+            onClick={onClose}
+            size="iconSm"
+            variant="ghost"
+            aria-label="Close profile"
+          >
+            <XIcon className="size-5 stroke-[1.5]" />
+          </Button>
+        </div>
+        <div className="flex flex-col gap-y-2 h-full items-center justify-center">
+          <CircleAlert
+            className="size-5 text-muted-foreground"
+            aria-label="Profile not found"
+          />
           <p className="text-sm text-muted-foreground">Profile not found</p>
         </div>
       </div>
@@ -156,10 +188,15 @@ const Profile = ({ memberId, onClose }: ProfileProps) => {
       <RemoveDialog />
       <LeaveDialog />
       <UpdateDialog />
-      <div className="h-full flex flex-col ">
+      <div className="h-full flex flex-col">
         <div className="flex justify-between items-center h-[49px] px-4 border-b">
           <p className="text-lg font-bold">Profile</p>
-          <Button onClick={onClose} size="iconSm" variant="ghost">
+          <Button
+            onClick={onClose}
+            size="iconSm"
+            variant="ghost"
+            aria-label="Close profile"
+          >
             <XIcon className="size-5 stroke-[1.5]" />
           </Button>
         </div>
@@ -175,7 +212,7 @@ const Profile = ({ memberId, onClose }: ProfileProps) => {
           <p className="text-xl font-bold">{member.user.name}</p>
           {currentMember?.role === "admin" &&
           currentMember?._id !== memberId ? (
-            <div className="flex item-center gap-2 mt-4">
+            <div className="flex items-center gap-2 mt-4">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="outline" className="w-full capitalize">
@@ -202,6 +239,7 @@ const Profile = ({ memberId, onClose }: ProfileProps) => {
                 onClick={handleRemove}
                 variant="destructive"
                 className="w-full"
+                aria-label="Remove user"
               >
                 Remove
               </Button>
@@ -213,6 +251,7 @@ const Profile = ({ memberId, onClose }: ProfileProps) => {
                 onClick={handleLeave}
                 variant="destructive"
                 className="w-full"
+                aria-label="Leave workspace"
               >
                 Leave
               </Button>
@@ -226,13 +265,14 @@ const Profile = ({ memberId, onClose }: ProfileProps) => {
             <div className="size-9 rounded-md bg-muted flex items-center justify-center">
               <MailIcon className="size-4" />
             </div>
-            <div className="flex flex-col ">
+            <div className="flex flex-col">
               <p className="text-xs font-semibold text-muted-foreground">
                 Email Address
               </p>
               <Link
                 className="text-sm hover:underline text-cyan-800"
                 href={`mailto:${member.user.email}`}
+                aria-label={`Email ${member.user.name}`}
               >
                 {member.user.email}
               </Link>

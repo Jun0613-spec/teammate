@@ -143,7 +143,7 @@ const Thread = ({ messageId, onClose }: ThreadProps) => {
           <Button onClick={onClose} size="iconSm" variant="ghost">
             <XIcon className="size-5 stroke-[1.5]" />
           </Button>
-        </div>{" "}
+        </div>
         <div className="flex flex-col gap-y-2 h-full items-center justify-center">
           <Loader2 className="size-5 animate-spin text-muted-foreground" />
         </div>
@@ -181,7 +181,7 @@ const Thread = ({ messageId, onClose }: ThreadProps) => {
           <div key={dateKey}>
             <div className="text-center my-2 relative">
               <hr className="absolute top-1/2 left-0 right-0 border-t border-neutral-300" />
-              <span className="relative inline-block bg-white px-4 py-1 rounded-full text-xs border-neutral-300 border shadow-sm">
+              <span className="relative inline-block px-4 py-1 rounded-full text-xs border-neutral-300 border shadow-sm">
                 {formatDateLabel(dateKey)}
               </span>
             </div>

@@ -175,9 +175,7 @@ const Editor = ({
                     setImage(null);
                     imageRef.current!.value = "";
                   }}
-                  className="hidden group-hover/image:flex rounded-full bg-black/70 hover:bg-black text-white 
-                dark:bg-white/70 dark:hover:bg-white dark:text-black border-2 border-white dark:border-black
-                absolute -top-2.5 -right-2.5  size-6 z-[4] items-center justify-center"
+                  className="hidden group-hover/image:flex rounded-full bg-black/70 hover:bg-black text-white dark:bg-white/70 dark:hover:bg-white dark:text-black border-2 border-white dark:border-black absolute -top-2.5 -right-2.5 size-6 z-[4] items-center justify-center"
                 >
                   <XIcon className="size-3.5" />
                 </button>
@@ -201,12 +199,12 @@ const Editor = ({
               variant="transparent2"
               onClick={toggleToolbar}
             >
-              <PiTextAa className="size-4 hover:text-[#6264A7]" />
+              <PiTextAa className="size-4 hover:text-[#6264A7] dark:hover:text-[#9c9cbb]" />
             </Button>
           </Hint>
           <EmojiPopover onEmojiSelect={onEmojiSelect} hint="Emoji">
             <Button disabled={disabled} size="iconSm" variant="transparent2">
-              <SmileIcon className="size-4 hover:text-[#6264A7]" />
+              <SmileIcon className="size-4 hover:text-[#6264A7] dark:hover:text-[#9c9cbb]" />
             </Button>
           </EmojiPopover>
           {variant === "create" && (
@@ -217,7 +215,7 @@ const Editor = ({
                 variant="transparent2"
                 onClick={() => imageRef.current?.click()}
               >
-                <ImageIcon className="size-4 hover:text-[#6264A7]" />
+                <ImageIcon className="size-4 hover:text-[#6264A7] dark:hover:text-[#9c9cbb]" />
               </Button>
             </Hint>
           )}
@@ -260,7 +258,9 @@ const Editor = ({
               }}
               className={cn(
                 "ml-auto",
-                isEmpty ? "text-muted-foreground " : "text-black"
+                isEmpty
+                  ? "text-muted-foreground "
+                  : "text-black dark:text-gray-100"
               )}
               onMouseEnter={() => setIsHover(true)}
               onMouseLeave={() => setIsHover(false)}

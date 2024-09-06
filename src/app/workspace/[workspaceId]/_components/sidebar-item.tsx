@@ -15,8 +15,9 @@ const sidebarItemVariants = cva(
   {
     variants: {
       variant: {
-        default: "text-neutral-50",
-        active: "text-[#141652] bg-white/90 hover:bg-white/90",
+        default: "text-neutral-50 dark:text-neutral-200",
+        active:
+          "text-[#141652] bg-white/90 hover:bg-white/90 dark:text-white dark:bg-neutral-800 dark:hover:bg-neutral-700",
       },
     },
     defaultVariants: {
@@ -42,9 +43,12 @@ const SidebarItem = ({ label, icon: Icon, id, variant }: SidebarItemProps) => {
       className={cn(sidebarItemVariants({ variant }))}
       asChild
     >
-      <Link href={`/workspace/${workspaceId}/channel/${id}`}>
+      <Link
+        href={`/workspace/${workspaceId}/channel/${id}`}
+        className="flex items-center"
+      >
         <Icon className="size-3.5 shrink-0 mr-1" />
-        <span className="text-sm truncate ">{label}</span>
+        <span className="text-sm truncate">{label}</span>
       </Link>
     </Button>
   );

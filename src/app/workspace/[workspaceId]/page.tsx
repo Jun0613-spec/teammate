@@ -63,9 +63,9 @@ const WorkspaceIdPage = () => {
     return (
       <div
         className="h-full flex-1 flex items-center
-       justify-center flex-col gap-2"
+         justify-center flex-col gap-2 dark:bg-gray-900"
       >
-        <Loader2 className="size-5 text-muted-foreground animate-spin" />
+        <Loader2 className="size-5 text-muted-foreground dark:text-gray-400 animate-spin" />
       </div>
     );
   }
@@ -74,10 +74,10 @@ const WorkspaceIdPage = () => {
     return (
       <div
         className="h-full flex-1 flex items-center
-       justify-center flex-col gap-y-2"
+         justify-center flex-col gap-y-2 dark:bg-gray-900"
       >
-        <CircleAlert className="size-5 text-muted-foreground" />
-        <span className="text-sm text-muted-foreground">
+        <CircleAlert className="size-5 text-muted-foreground dark:text-gray-400" />
+        <span className="text-sm text-muted-foreground dark:text-gray-400">
           Workspace not found
         </span>
       </div>
@@ -87,10 +87,12 @@ const WorkspaceIdPage = () => {
   return (
     <div
       className="h-full flex-1 flex items-center
-     justify-center flex-col gap-2"
+       justify-center flex-col gap-2 dark:bg-gray-900"
     >
-      <CircleAlert className="size-6 text-muted-foreground" />
-      <span className="text-sm text-muted-foreground">No channel found</span>
+      <CircleAlert className="size-6 text-muted-foreground dark:text-gray-400" />
+      <span className="text-sm text-muted-foreground dark:text-gray-400">
+        No channel found
+      </span>
     </div>
   );
 };

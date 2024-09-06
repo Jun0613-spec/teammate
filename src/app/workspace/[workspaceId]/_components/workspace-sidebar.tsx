@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  CircleAlert,
-  Hash,
-  Loader2,
-  MessageSquareText,
-  SendHorizonal,
-} from "lucide-react";
+import { CircleAlert, Hash, Loader2 } from "lucide-react";
 
 import WorkspaceHeader from "./workspace-header";
 import SidebarItem from "./sidebar-item";
@@ -21,7 +15,6 @@ import { useChannelId } from "@/hooks/chennels/use-channel-id";
 import { useMemberId } from "@/hooks/members/use-member-id";
 
 import { useCreateChannelModal } from "@/stores/channels/use-create-channel-modal";
-import { useGetMessages } from "@/hooks/messages/use-get-messages";
 
 const WorkspaceSidebar = () => {
   const workspaceId = useWorkspaceId();

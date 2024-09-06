@@ -92,17 +92,16 @@ const PreferencesModal = ({
 
   return (
     <>
-      <ConfirmDialog />
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="p-0 bg-neutral-50 overflow-hidden">
-          <DialogHeader className="p-4 border-b bg-white">
+        <DialogContent className="p-0 bg-neutral-50 dark:bg-neutral-900 overflow-hidden">
+          <DialogHeader className="p-4 border-b">
             <DialogTitle>{value}</DialogTitle>
           </DialogHeader>
           <div className="px-4 pb-4 flex flex-col gap-y-2">
             <Dialog open={editOpen} onOpenChange={setEditOpen}>
               <DialogTrigger asChild>
-                <div className="px-5 py-4 bg-white rounded-lg border cursor-pointer hover:bg-neutral-50">
-                  <div className="flex itemx-center justify-between">
+                <div className="px-5 py-4 rounded-lg border cursor-pointer bg-white dark:bg-neutral-900 hover:bg-neutral-50 dark:hover:bg-neutral-900/20">
+                  <div className="flex items-center justify-between">
                     <p className="text-sm font-semibold">Workspace name</p>
                     <p className="text-sm text-sky-600 hover:underline font-semibold">
                       Edit
@@ -126,7 +125,7 @@ const PreferencesModal = ({
                     minLength={3}
                     maxLength={80}
                   />
-                  <DialogFooter>
+                  <div className="flex items-center justify-end space-x-2">
                     <DialogClose asChild>
                       <Button
                         variant="destructive"
@@ -138,7 +137,7 @@ const PreferencesModal = ({
                     <Button disabled={isUpdatingWorkspace} variant="confirm">
                       Save
                     </Button>
-                  </DialogFooter>
+                  </div>
                 </form>
               </DialogContent>
             </Dialog>
@@ -146,7 +145,7 @@ const PreferencesModal = ({
             <button
               disabled={isRemovingWorkspace}
               onClick={handleDelete}
-              className="flex items-center gap-x-2 px-5 py-4 bg-white rounded-lg border cursor-pointer hover:bg-neutral-50 text-rose-600"
+              className="flex items-center gap-x-2 px-5 py-4 rounded-lg border cursor-pointer bg-white dark:bg-neutral-900 hover:bg-neutral-50 dark:hover:bg-neutral-900/20 text-rose-600"
             >
               <Trash2 className="size-4" />
               <p className="text-sm font-semibold">Delete workspace</p>

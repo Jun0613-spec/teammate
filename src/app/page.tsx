@@ -2,14 +2,11 @@
 
 import { useEffect, useMemo } from "react";
 import { useRouter } from "next/navigation";
-
-import UserButton from "@/components/user-button";
-import { ModeToggle } from "@/components/mode-toggel";
+import { Loader2 } from "lucide-react";
 
 import { useGetWorkspaces } from "@/hooks/workspaces/use-get-workspaces";
 
 import { useCreateWorkspaceModal } from "@/stores/workspaces/use-create-workspace-modal";
-import { Loader2 } from "lucide-react";
 
 export default function Home() {
   const router = useRouter();

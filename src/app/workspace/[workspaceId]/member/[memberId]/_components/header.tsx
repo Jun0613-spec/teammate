@@ -14,10 +14,10 @@ const Header = ({ memberName, memberImage, onClick }: HeaderProps) => {
   const avatarFallback = memberName?.charAt(0).toUpperCase();
 
   return (
-    <div className="bg-white h-[49px] flex border-b items-center overflow-hidden px-4">
+    <div className="bg-white dark:bg-gray-800 h-[49px] flex border-b border-gray-200 dark:border-gray-700 items-center overflow-hidden px-4">
       <Button
         variant="ghost"
-        className="text-lg font-semibold px-2 overflow-hidden w-auto"
+        className="text-lg font-semibold px-2 overflow-hidden w-auto dark:text-white"
         size="sm"
         onClick={onClick}
       >
@@ -27,8 +27,8 @@ const Header = ({ memberName, memberImage, onClick }: HeaderProps) => {
             {avatarFallback}
           </AvatarFallback>
         </Avatar>
-        <span className="truncate">{memberName}</span>
-        <FaChevronRight className="size-2.5 ml-2" />
+        <span className="truncate dark:text-white">{memberName}</span>
+        <FaChevronRight className="size-2.5 ml-2 dark:text-white" />
       </Button>
     </div>
   );

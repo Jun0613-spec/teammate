@@ -11,6 +11,7 @@ import Hint from "./hint";
 import Thumbnail from "./thumbnail";
 import MessageToolbar from "./message-toolbar";
 import Reactions from "./reactions";
+import ThreadBar from "./thread-bar";
 
 import { useConfirm } from "@/hooks/use-confirm";
 import { useUpdateMessage } from "@/hooks/messages/use-update-message";
@@ -19,7 +20,6 @@ import { useToggleReaction } from "@/hooks/reactions/use-toggle-reaction";
 import { usePanel } from "@/hooks/use-panel";
 
 import { cn } from "@/lib/utils";
-import ThreadBar from "./thread-bar";
 
 const Renderer = dynamic(() => import("@/components/renderer"), { ssr: false });
 const Editor = dynamic(() => import("@/components/editor"), { ssr: false });
@@ -218,7 +218,7 @@ const Message = ({
       <ConfirmDialog />
       <div
         className={cn(
-          "flex flex-col gap-2 p-1.5 px-5 hover:bg-neutral-100/60 group relative",
+          "flex flex-col gap-2 p-1.5 px-5  hover:bg-neutral-100/60 dark:hover:bg-neutral-800 group relative",
           isEditing && "bg-[#f2c74433] hover:bg-[#f2c74433]",
           isRemovingMessage &&
             "bg-rose-500/50 transform  transition-all scale-y-0 origin-bottom duration-200"
@@ -232,7 +232,7 @@ const Message = ({
                 src={authorImage}
                 alt={authorName}
               />
-              <AvatarFallback className="rounded-md bg-sky-600 dark:bg-sky-700 text-white">
+              <AvatarFallback className="rounded-md bg-sky-600 dark:bg-sky-700 text-white dark:text-neutral-200">
                 {avatarFallback}
               </AvatarFallback>
             </Avatar>
