@@ -92,6 +92,7 @@ const PreferencesModal = ({
 
   return (
     <>
+      <ConfirmDialog />
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="p-0 bg-neutral-50 dark:bg-neutral-900 overflow-hidden">
           <DialogHeader className="p-4 border-b">

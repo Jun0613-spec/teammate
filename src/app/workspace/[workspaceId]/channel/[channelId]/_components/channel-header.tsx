@@ -97,7 +97,6 @@ const ChannelHeader = ({ title }: ChannelHeaderProps) => {
   return (
     <>
       <ConfirmDialog />
-      <ConfirmDialog />
       <div className="border-b h-[49px] flex items-center px-4 overflow-hidden bg-white dark:bg-gray-800">
         <Dialog>
           <DialogTrigger asChild>
