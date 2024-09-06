@@ -14,6 +14,7 @@ Teammate is Full stack team messenger web application using with React, Next.js,
 - Edit channel
 - Generate invite code
 - Regenerate invite code
+- Invite member
 - Send a message to member
 - Leave the message on channel
 - Reply message on thread
