@@ -63,7 +63,7 @@ const WorkspaceHeader = ({ workspace, isAdmin }: WorkspaceHeaderProps) => {
                 {workspace.name.charAt(0).toUpperCase()}
               </div>
               <div className="flex flex-col items-start">
-                <p className="font-bold text-white dark:text-neutral-200">
+                <p className="font-bold text-black dark:text-neutral-200">
                   {workspace.name}
                 </p>
                 <p className="text-xs text-muted-foreground dark:text-neutral-400">
@@ -78,7 +78,7 @@ const WorkspaceHeader = ({ workspace, isAdmin }: WorkspaceHeaderProps) => {
                   className="cursor-pointer py-2 dark:hover:bg-neutral-600"
                   onClick={() => setInviteOpen(true)}
                 >
-                  <p className="truncate text-white dark:text-neutral-200">
+                  <p className="truncate text-black dark:text-neutral-200">
                     Invite people to {workspace.name}
                   </p>
                 </DropdownMenuItem>
