@@ -1,6 +1,6 @@
 # About
 
-Teammate is Full stack team messenger web application using with React, Next.js,Auth.js, Covnex, TailwindCSS, React-query, React Redux
+Teammate is Full stack team messenger web application using with React, Next.js,Auth.js, Covnex, TailwindCSS, React-query
 
 ### Features
 
